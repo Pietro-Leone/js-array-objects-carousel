@@ -39,7 +39,13 @@ for (let i = 0; i < images.length; i++) {
         imageClass = "active"
     }
 
-    container.innerHTML += `<img src="${currentPic}" class="img carousel-img ${imageClass}" alt="img">`
+    container.innerHTML += `<div class="${imageClass} carousel-img">
+                                <img src="${currentPic}" class="img" alt="img">
+                                <div class="position-absolute bottom-0 end-0 text-white d-flex flex-column align-items-end p-3 bg-black bg-opacity-50 w-100">
+                                    <h3>${images[i].title}</h3>
+                                    <div class="w-75 text-end">${images[i].text}</div>
+                                </div>
+                            </div>`
 
 
     let thumb = document.createElement("img");
@@ -49,7 +55,11 @@ for (let i = 0; i < images.length; i++) {
 
 
     thumb.addEventListener("click", function () {
+        const allElement = document.querySelectorAll(".carousel-img");
         console.log(i)
+        allElement[currentPicIndex].classList.remove("active")
+        currentPicIndex = i;
+        allElement[i].classList.add("active");
     })
 
 }
