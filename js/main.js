@@ -2,9 +2,13 @@
 
 const prevBtn = document.getElementById("carousel-prev-btn");
 const nextBtn = document.getElementById("carousel-next-btn");
+const startBtn = document.getElementById("btn-start");
+const stopBtn = document.getElementById("btn-stop");
+const reverseBtn = document.getElementById("btn-reverse");
 const container = document.querySelector(".carousel-on");
 const thumbnailContainer = document.querySelector(".thumbnails");
 let currentPicIndex = 0;
+let autoPlay = undefined;
 
 
 const images = [
@@ -64,7 +68,10 @@ for (let i = 0; i < images.length; i++) {
 
 }
 
-const autoPlay = setInterval(function () {
+autoPlay = setInterval(timer, 3000);
+
+
+function timer() {
 
     const allElement = document.querySelectorAll(".carousel-img");
 
@@ -74,11 +81,9 @@ const autoPlay = setInterval(function () {
         currentPicIndex = 0;
     }
     allElement[currentPicIndex].classList.add("active");
-    
+};
 
-},3000)
-
-
+// Button next
 nextBtn.addEventListener("click", function () {
     const allElement = document.querySelectorAll(".carousel-img");
 
@@ -90,7 +95,7 @@ nextBtn.addEventListener("click", function () {
     allElement[currentPicIndex].classList.add("active");
 
 })
-
+// Button previous
 prevBtn.addEventListener("click", function () {
     const allElement = document.querySelectorAll(".carousel-img");
 
@@ -102,3 +107,48 @@ prevBtn.addEventListener("click", function () {
     allElement[currentPicIndex].classList.add("active");
 
 })
+
+// Button start
+startBtn.addEventListener("click", function () {
+
+    if (autoPlay !== undefined) {
+        clearInterval(autoPlay);
+        console.log("stoppato")
+    }
+
+    autoPlay = setInterval(timer, 3000);
+
+    console.log("riavviato");
+
+})
+
+// Button stop
+stopBtn.addEventListener("click", function () {
+
+    clearInterval(autoPlay);
+    autoPlay = undefined;
+
+})
+
+// Button reverse
+reverseBtn.addEventListener("click", function () {
+
+    if (autoPlay !== undefined) {
+        clearInterval(autoPlay);
+        console.log("stoppato")
+    }
+
+    autoPlay = setInterval(function () {
+
+        const allElement = document.querySelectorAll(".carousel-img");
+
+        allElement[currentPicIndex].classList.remove("active");
+        currentPicIndex--;
+        if (currentPicIndex < 0) {
+            currentPicIndex = allElement.length - 1;
+        }
+        allElement[currentPicIndex].classList.add("active");
+
+    }, 3000);
+})
+

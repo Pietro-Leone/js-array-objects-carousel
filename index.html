@@ -15,24 +15,26 @@
 </head>
 
 <body>
-  <div class="container d-flex align-items-center h-100">
+  <div class="container d-flex flex-column justify-content-center h-100">
     <div class="my-container d-flex">
       <div class="carousel-on">
-
-
-
+        <!-- Carousel-active -->
       </div>
       <div class="thumbnails-container position-relative">
         <!-- thumbnail -->
-
         <div class="thumbnails position-relative h-100"></div>
 
-        <button class="btn btn-link position-absolute top-0 start-50 translate-middle-x text-black fs-3" id="carousel-prev-btn"
-          style="width: fit-content;"><i class="fas fa-chevron-up my-btn p-1"></i></button>
-        <button class="btn btn-link position-absolute bottom-0 start-50 translate-middle-x text-black fs-3" id="carousel-next-btn"
-          style="width: fit-content;"><i class="fas fa-chevron-down my-btn p-1"></i></button>
+        <button class="btn btn-link position-absolute top-0 start-50 translate-middle-x text-black fs-3"
+          id="carousel-prev-btn" style="width: fit-content;"><i class="fas fa-chevron-up my-btn p-1"></i></button>
+        <button class="btn btn-link position-absolute bottom-0 start-50 translate-middle-x text-black fs-3"
+          id="carousel-next-btn" style="width: fit-content;"><i class="fas fa-chevron-down my-btn p-1"></i></button>
 
       </div>
+    </div>
+    <div class="text-center mt-5">
+      <button type="button" id="btn-start" class="btn btn-success">Start</button>
+      <button type="button" id="btn-stop" class="btn btn-secondary">Stop</button>
+      <button type="button" id="btn-reverse" class="btn btn-warning">Reverse</button>
     </div>
   </div>
 
