@@ -43,11 +43,10 @@ body {
     object-fit: cover;
 }
 
-.thumbnails {
+.thumbnails-container {
     background-color: blue;
     width: 30%;
     height: 100%;
-    position: relative;
 }
 
 .thumbnail {

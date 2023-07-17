@@ -41,12 +41,40 @@ for (let i = 0; i < images.length; i++) {
 
     container.innerHTML += `<img src="${currentPic}" class="img carousel-img ${imageClass}" alt="img">`
 
+
+    let thumb = document.createElement("img");
+    thumb.classList.add("img", "thumbnail")
+    thumb.setAttribute("src", `${currentPic}`);
+    thumbnailContainer.append(thumb);
+
+
+    thumb.addEventListener("click", function () {
+        console.log(i)
+    })
+
 }
 
-// prevBtn.addEventListener("click" function () {
 
-// })
+nextBtn.addEventListener("click", function () {
+    const allElement = document.querySelectorAll(".carousel-img");
 
-// nextBtn.addEventListener("click" function () {
+    allElement[currentPicIndex].classList.remove("active");
+    currentPicIndex++;
+    if (currentPicIndex > allElement.length - 1) {
+        currentPicIndex = 0;
+    }
+    allElement[currentPicIndex].classList.add("active");
 
-// })
+})
+
+prevBtn.addEventListener("click", function () {
+    const allElement = document.querySelectorAll(".carousel-img");
+
+    allElement[currentPicIndex].classList.remove("active");
+    currentPicIndex--;
+    if (currentPicIndex < 0) {
+        currentPicIndex = allElement.length - 1;
+    }
+    allElement[currentPicIndex].classList.add("active");
+
+})
