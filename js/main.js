@@ -1,5 +1,12 @@
 "use script"
 
+const prevBtn = document.getElementById("carousel-prev-btn");
+const nextBtn = document.getElementById("carousel-next-btn");
+const container = document.querySelector(".carousel-on");
+const thumbnailContainer = document.querySelector(".thumbnails");
+let currentPicIndex = 0;
+
+
 const images = [
     {
         image: 'img/01.webp',
@@ -23,3 +30,23 @@ const images = [
         text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
     }
 ];
+
+for (let i = 0; i < images.length; i++) {
+    const currentPic = images[i].image;
+    let imageClass = "";
+
+    if (i === 0) {
+        imageClass = "active"
+    }
+
+    container.innerHTML += `<img src="${currentPic}" class="img carousel-img ${imageClass}" alt="img">`
+
+}
+
+// prevBtn.addEventListener("click" function () {
+
+// })
+
+// nextBtn.addEventListener("click" function () {
+
+// })
