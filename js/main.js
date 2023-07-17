@@ -64,6 +64,20 @@ for (let i = 0; i < images.length; i++) {
 
 }
 
+const autoPlay = setInterval(function () {
+
+    const allElement = document.querySelectorAll(".carousel-img");
+
+    allElement[currentPicIndex].classList.remove("active");
+    currentPicIndex++;
+    if (currentPicIndex > allElement.length - 1) {
+        currentPicIndex = 0;
+    }
+    allElement[currentPicIndex].classList.add("active");
+    
+
+},3000)
+
 
 nextBtn.addEventListener("click", function () {
     const allElement = document.querySelectorAll(".carousel-img");
